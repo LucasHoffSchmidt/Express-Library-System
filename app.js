@@ -9,6 +9,8 @@ const dotenv = require('dotenv');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const catalogRouter = require('./routes/catalog');
+const compression = require('compression');
+const helmet = require('helmet');
 
 const app = express();
 dotenv.config();
@@ -16,7 +18,6 @@ dotenv.config();
 // Set up mongoose connection
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
-const mongoDB = "insert_your_database_url_here";
 
 main().catch((err) => console.log(err));
 async function main() {
@@ -31,7 +32,14 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(compression()); // Compress all routes, boosting performance
+app.use(helmet.contentSecurityPolicy({
+  directives: {
+    "script-src": ["'self'", "code.jquery.com", "cdn.jsdelivr.net"],
+  },
+}),
+);
+app.use(express.static(path.join(__dirname, 'public'))); // Loads static files from /public
 
 // Add routes to middleware chain
 app.use('/', indexRouter);
