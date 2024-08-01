@@ -7,7 +7,10 @@ Node.js/Express, Javascript, Pug, MongoDB/Mongoose
 
 ## Getting started
 ### Accessing the project
-1. Go to this link, where the project is hosted: https://library-system-express.glitch.me/ 
+1. Go to this link, where the project is hosted: https://library-system-express.glitch.me/
+
+## Project showcase
+![Library system navigation](Express_Library_System-showcase.gif)
 
 ### Performing operations
 1. Create and read: Use the lefthand navigational links to see a list of the different elements, or create a new element
