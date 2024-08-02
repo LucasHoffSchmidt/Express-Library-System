@@ -8,5 +8,4 @@ _Express Library System Overview_
 Node.js/Express, Javascript, Pug, MongoDB/Mongoose
 
 ## Getting started
-### Accessing the project
-1. You can try out the library management system here: [Express Library System](https://library-system-express.glitch.me/)
+You can try out the library management system here: [Express Library System](https://library-system-express.glitch.me/)
